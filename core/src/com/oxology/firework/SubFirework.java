@@ -34,4 +34,8 @@ public class SubFirework {
         batch.setColor(color.r, color.g, color.b, opacity);
         batch.draw(texture, x, y);
     }
+
+    public float getOpacity() {
+        return opacity;
+    }
 }
