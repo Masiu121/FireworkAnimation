@@ -44,7 +44,7 @@ public class Firework {
     }
 
     public void createSubFireworks() {
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < FireworkAnimation.subFireworkCount; i++) {
             subFireworks.add(new SubFirework(this.x, this.y, texture));
         }
     }
@@ -58,5 +58,9 @@ public class Firework {
                 subFirework.draw(batch);
             }
         }
+    }
+
+    public float getSubFireworkOpacity() {
+        return subFireworks.get(0).getOpacity();
     }
 }
