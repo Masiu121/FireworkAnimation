@@ -18,6 +18,8 @@ public class FireworkAnimation extends ApplicationAdapter {
 	Texture firework;
 	List<Firework> fireworks;
 	static Texture smallFirework;
+	static int subFireworkCount;
+	List<Firework> fireworksToRemove;
 
 	static List<Color> colors;
 
@@ -32,6 +34,8 @@ public class FireworkAnimation extends ApplicationAdapter {
 		colors.add(Color.RED);
 		colors.add(Color.GREEN);
 		colors.add(Color.WHITE);
+		subFireworkCount = 40;
+		fireworksToRemove = new ArrayList<>();
 	}
 
 	public static Color getRandomColor() {
@@ -57,6 +61,14 @@ public class FireworkAnimation extends ApplicationAdapter {
 
 		for(Firework firework : fireworks) {
 			firework.update();
+			if(firework.subFireworks.size()>0 && firework.getSubFireworkOpacity() < 0)
+				fireworksToRemove.add(firework);
+	 	}
+
+		if(fireworksToRemove.size() > 0) {
+			for(Firework firework : fireworksToRemove) {
+				fireworks.remove(firework);
+			}
 		}
 	}
 
