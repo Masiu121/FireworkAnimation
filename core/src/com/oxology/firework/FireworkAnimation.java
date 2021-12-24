@@ -30,11 +30,14 @@ public class FireworkAnimation extends ApplicationAdapter {
 		smallFirework = new Texture("FireworkSmall.png");
 		fireworks = new ArrayList<>();
 		colors = new ArrayList<>();
-		colors.add(Color.BLUE);
-		colors.add(Color.RED);
-		colors.add(Color.GREEN);
+		//colors.add(Color.BLUE);
+		//colors.add(Color.RED);
+		//colors.add(Color.GREEN);
+		//colors.add(Color.WHITE);
 		colors.add(Color.WHITE);
-		subFireworkCount = 40;
+		colors.add(Color.RED);
+		colors.add(new Color(0.96f, 0.72f, 0.85f, 1));
+		subFireworkCount = 200;
 		fireworksToRemove = new ArrayList<>();
 	}
 
@@ -61,7 +64,7 @@ public class FireworkAnimation extends ApplicationAdapter {
 
 		for(Firework firework : fireworks) {
 			firework.update();
-			if(firework.subFireworks.size()>0 && firework.getSubFireworkOpacity() < 0)
+			if(firework.subFireworks.size()>0 && firework.getHideTimer() < 0)
 				fireworksToRemove.add(firework);
 	 	}
 
