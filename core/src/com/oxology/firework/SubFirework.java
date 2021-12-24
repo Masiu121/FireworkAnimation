@@ -15,8 +15,8 @@ public class SubFirework {
     Color color;
 
     public SubFirework(float x, float y, Texture texture) {
-        xVelocity = random()*10-5f;
-        yVelocity = random()*10-5f;
+        xVelocity = random()*15-7.5f;
+        yVelocity = random()*15-7.5f;
         this.x = x;
         this.y = y;
         this.opacity = 1;
@@ -28,6 +28,10 @@ public class SubFirework {
         this.x = this.x + xVelocity;
         this.y = this.y + yVelocity;
         opacity = opacity-0.02f;
+
+        xVelocity = xVelocity/1.03f;
+        yVelocity = yVelocity/1.03f;
+        yVelocity -= 0.1f;
     }
 
     public void draw(SpriteBatch batch) {
