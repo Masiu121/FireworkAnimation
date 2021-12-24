@@ -24,7 +24,7 @@ public class Firework {
         this.texture = texture;
         opacity = 1;
         fireworkXSpeed = random()*5-2.5f;
-        fireworkYSpeed = 8;
+        fireworkYSpeed = 11;
         x = Gdx.graphics.getWidth()/2 - this.texture.getWidth()/2;
         subFireworks = new ArrayList<>();
         subFireworksCreated = false;
@@ -35,7 +35,7 @@ public class Firework {
         opacity = opacity-0.01f;
         x = x+fireworkXSpeed;
         y = y+fireworkYSpeed;
-        fireworkYSpeed -= 0.1f;
+        fireworkYSpeed -= 0.15f;
 
         if(opacity < 0.1 && !subFireworksCreated) {
             createSubFireworks();
@@ -60,7 +60,7 @@ public class Firework {
         }
     }
 
-    public float getSubFireworkOpacity() {
-        return subFireworks.get(0).getOpacity();
+    public float getHideTimer() {
+        return subFireworks.get(0).getHideTimer();
     }
 }
