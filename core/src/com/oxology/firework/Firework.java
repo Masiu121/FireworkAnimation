@@ -25,7 +25,7 @@ public class Firework {
         opacity = 1;
         fireworkXSpeed = random()*5-2.5f;
         fireworkYSpeed = 11;
-        x = Gdx.graphics.getWidth()/2 - this.texture.getWidth()/2;
+        x = Gdx.graphics.getWidth()/2 - 10;
         subFireworks = new ArrayList<>();
         subFireworksCreated = false;
         color = FireworkAnimation.getRandomColor();
@@ -50,14 +50,27 @@ public class Firework {
     }
 
     public void draw(SpriteBatch batch) {
-        batch.setColor(color.r, color.g, color.b, opacity);
-        batch.draw(texture, x, y);
+        batch.setColor(rgb(191, 54, 4, opacity));
+        batch.draw(texture, x, y, 30, 30);
+        batch.setColor(rgb(242, 187, 19, opacity));
+        batch.draw(texture, x, y, 25, 25);
+        batch.setColor(rgb(242, 163, 15, opacity));
+        batch.draw(texture, x, y, 20, 20);
+        batch.setColor(rgb(242, 120, 12, opacity));
+        batch.draw(texture, x, y, 15, 15);
+        batch.setColor(rgb(13, 13, 13, opacity));
+        batch.draw(texture, x, y, 10, 10);
+
         if(!subFireworks.isEmpty()) {
             for(SubFirework subFirework : subFireworks) {
                 subFirework.update();
                 subFirework.draw(batch);
             }
         }
+    }
+
+    public Color rgb(int r, int g, int b, float opacity) {
+        return new Color(r/255f, g/255f, b/255f, opacity);
     }
 
     public float getHideTimer() {
