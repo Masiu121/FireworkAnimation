@@ -18,9 +18,9 @@ public class SubFirework {
 
     public SubFirework(float x, float y, Texture texture) {
         float angle = random()*360;
-        float divide = random()*2;
-        xVelocity = (sin(angle)*3)*divide;
-        yVelocity = (cos(angle)*3)*divide;
+        float multiplier = random()*2;
+        xVelocity = (sin(angle)*3)*multiplier;
+        yVelocity = (cos(angle)*3)*multiplier;
         opacityDecreaseSpeed = ((random()*2)+1)/100;
         this.x = x;
         this.y = y;
@@ -43,7 +43,7 @@ public class SubFirework {
 
     public void draw(SpriteBatch batch) {
         batch.setColor(color.r, color.g, color.b, opacity);
-        batch.draw(texture, x, y);
+        batch.draw(texture, x, y, 10, 10);
     }
 
     public float getHideTimer() {
