@@ -72,6 +72,7 @@ public class FireworkAnimation extends ApplicationAdapter {
 			for(Firework firework : fireworksToRemove) {
 				fireworks.remove(firework);
 			}
+			fireworksToRemove.clear();
 		}
 	}
 
